@@ -1,0 +1,18 @@
+{
+  "name": "demo1-server",
+  "version": "0.0.1",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "description": "Minimal 'regular web app' (confidential OAuth client) todo demo. The server owns the entire authorization_code -> token exchange with client_secret; the browser only ever receives a session cookie, never the access_token.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env --watch server.js"
+  },
+  "dependencies": {
+    "@quant0/sdk-core": "file:../../package",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.21.0"
+  }
+}
