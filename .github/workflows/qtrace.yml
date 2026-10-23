@@ -1,0 +1,25 @@
+name: cryptography inventory
+on:
+  workflow_dispatch:
+    inputs:
+      scan_request_id:
+        description: Set automatically when triggered from the quant0 portal.
+        required: false
+        type: string
+      api_url:
+        description: Which quant0 instance to push to. Set automatically when triggered from the quant0 portal.
+        required: false
+        type: string
+permissions:
+  contents: read
+  id-token: write
+jobs:
+  qtrace:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: TGT-Quant0/qtrace-action@v1
+        with:
+          path: .
+          api-url: ${{ inputs.api_url }}
+          install-url: https://qtrace.quant0.io/dev/v0.1.0/install.sh
